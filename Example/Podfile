@@ -1,0 +1,7 @@
+use_frameworks!
+target 'Moya-Alamofire_Tests' do
+  pod 'Moya-Alamofire', :path => '../'
+  
+  pod 'Quick', '~> 0.8'
+  pod 'Nimble', '~> 3.0'
+end
