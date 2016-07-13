@@ -8,7 +8,10 @@
 import Alamofire
 import Gloss
 
+/// Domain constant for constucting an NSError
 public let AlamoFireGloss_ErrDomain = "Alamofire+Gloss"
+
+/// Code constant for constucting an NSError
 public let AlamoFireGloss_ErrCode = -1
 
 public extension Alamofire.Request {
