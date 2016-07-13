@@ -1,0 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+
+# Core Libraries
+def core()
+  pod 'Alamofire-Gloss', :path => '../'
+end
+
+# Testing Libraries
+def testing()
+  pod 'Quick', '~> 0.9.0'
+  pod 'Nimble', '~> 3.2.0'
+end
+
+target 'Demo' do
+  platform :ios, '8.0'
+  core
+end
+
+target 'Tests' do
+  platform :ios, '8.0'
+  core
+  testing
+end
+

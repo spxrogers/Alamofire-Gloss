@@ -1,0 +1,2 @@
+github "hkellaway/Gloss"
+github "Alamofire/Alamofire" ~> 3.4
