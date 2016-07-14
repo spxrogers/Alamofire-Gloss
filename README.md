@@ -54,8 +54,8 @@ struct Person: Decodable {
 ### API
 
 ```swift
-mapObject()
-mapArray()
+responseObject()
+responseArray()
 ```
 
 ## 1. Example – mapObject
@@ -65,9 +65,9 @@ mapArray()
 Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) { (response) in
   switch response.result {
   case .Success(let person):
-    self.text("Found person: \(person)")
+    print("Found person: \(person)")
   case .Failure(let error):
-    self.text("Error'd: \(error)")
+    print("Error'd: \(error)")
   }
 }
 ```
@@ -79,9 +79,9 @@ Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) 
 Alamofire.request(.GET, peopleUrl, parameters: nil).responseArray(Person.self) { (response) in
   switch response.result {
   case .Success(let people):
-    self.text("Found people: \(people)")
+    print("Found people: \(people)")
   case .Failure(let error):
-    self.text("Error'd: \(error)")
+    print("Error'd: \(error)")
   }
 }
 ```
