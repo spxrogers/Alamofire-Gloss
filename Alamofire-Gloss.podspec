@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/*.swift"
     ss.dependency "Alamofire", "~> 3.5"
-    ss.dependency "Gloss", "~> 0.8"
+    ss.dependency "Gloss", "~> 0.7"
     ss.framework  = "Foundation"
   end
 
