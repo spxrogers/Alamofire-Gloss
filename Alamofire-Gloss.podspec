@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Alamofire-Gloss"
-  s.version          = “1.1”
+  s.version          = "1.1"
   s.summary          = "Convenience Gloss bindings for Alamofire."
   s.description      = <<-EOS
     [Gloss](https://github.com/hkellaway/Gloss) bindings for
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/*.swift"
-    ss.dependency "Alamofire", "~> 3.5”
-    ss.dependency "Gloss", "~> 0.8”
+    ss.dependency "Alamofire", "~> 3.5"
+    ss.dependency "Gloss", "~> 0.8"
     ss.framework  = "Foundation"
   end
 
