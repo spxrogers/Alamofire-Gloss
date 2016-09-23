@@ -1,8 +1,5 @@
 Alamofire-Gloss
 ============
-[![CocoaPods](https://img.shields.io/cocoapods/v/Alamofire-Gloss.svg)](http://cocoapods.org/pods/Alamofire-Gloss)
-[![Carthage
-compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 [Gloss](https://github.com/hkellaway/Gloss) bindings for [Alamofire](https://github.com/Alamofire/Alamofire) for easy-peasy JSON serialization.
 
@@ -13,18 +10,8 @@ compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=fl
 Add to your Podfile:
 
 ```ruby
-pod 'Alamofire-Gloss'
+pod 'Alamofire-Gloss', :git => 'https://github.com/jpunz/Alamofire-Gloss.git'
 ```
-
-### Carthage
-
-```ruby
-github "spxrogers/Alamofire-Gloss"
-```
-
-`Alamofire-Gloss` lists `Alamofire` and `Gloss` as explicit Carthage dependencies, so it's only
-necessary to list `Alamofire-Gloss` in your Cartfile and it will pull down all
-three libraries. Copy & Link generated frameworks as normal.
 
 # Usage
 
@@ -93,6 +80,7 @@ Issues and pull requests are welcome!
 # Author
 
 Steven Rogers [@spxrogers](https://twitter.com/spxrogers)
+Updated by jpunz
 
 # Thanks ... 
 
@@ -103,5 +91,3 @@ Steven Rogers [@spxrogers](https://twitter.com/spxrogers)
 # License
 
 Alamofire-Gloss is released under an MIT license. See LICENSE for more information.
-
-![Smile for a permissive license.](https://media.giphy.com/media/12Rv3g5EveQwHS/giphy.gif)

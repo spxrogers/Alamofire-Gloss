@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08DB2A099960B7ABF06048B2 /* Pods_AlamofireGloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BCE29DF42EC44307CAB53 /* Pods_AlamofireGloss.framework */; };
 		B0694DA81D35DA2200B52AD7 /* AlamofireGloss.h in Headers */ = {isa = PBXBuildFile; fileRef = B09181BB1D35D79100B50DF2 /* AlamofireGloss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0694DA91D35DA4700B52AD7 /* Alamofire+Gloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09181AA1D35D6F300B50DF2 /* Alamofire+Gloss.swift */; };
 		B09181D21D35D94D00B50DF2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09181C01D35D83500B50DF2 /* Alamofire.framework */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A938098715B47557CE0B056 /* Pods-AlamofireGloss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireGloss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireGloss/Pods-AlamofireGloss.debug.xcconfig"; sourceTree = "<group>"; };
+		2F9BCE29DF42EC44307CAB53 /* Pods_AlamofireGloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireGloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6997C8D5551DE2342E129791 /* Pods-AlamofireGloss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireGloss.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireGloss/Pods-AlamofireGloss.release.xcconfig"; sourceTree = "<group>"; };
 		B09181AA1D35D6F300B50DF2 /* Alamofire+Gloss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Gloss.swift"; sourceTree = "<group>"; };
 		B09181BB1D35D79100B50DF2 /* AlamofireGloss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlamofireGloss.h; sourceTree = "<group>"; };
 		B09181BC1D35D79100B50DF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,12 +33,21 @@
 			files = (
 				B09181D21D35D94D00B50DF2 /* Alamofire.framework in Frameworks */,
 				B09181D31D35D94D00B50DF2 /* Gloss.framework in Frameworks */,
+				08DB2A099960B7ABF06048B2 /* Pods_AlamofireGloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E17D5F65C0077D06E0F1DC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F9BCE29DF42EC44307CAB53 /* Pods_AlamofireGloss.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B091817F1D35D58D00B50DF2 = {
 			isa = PBXGroup;
 			children = (
@@ -42,6 +55,8 @@
 				B09181BA1D35D79100B50DF2 /* Supporting Files */,
 				B09181891D35D58D00B50DF2 /* Products */,
 				B09181C41D35D83F00B50DF2 /* Dependencies */,
+				B462A1420033888A1CE57D2D /* Pods */,
+				8E17D5F65C0077D06E0F1DC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +94,15 @@
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
+		B462A1420033888A1CE57D2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A938098715B47557CE0B056 /* Pods-AlamofireGloss.debug.xcconfig */,
+				6997C8D5551DE2342E129791 /* Pods-AlamofireGloss.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -97,10 +121,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B09181CF1D35D91600B50DF2 /* Build configuration list for PBXNativeTarget "AlamofireGloss" */;
 			buildPhases = (
+				BBDC04B59911A0C5494DD864 /* [CP] Check Pods Manifest.lock */,
 				B09181C51D35D91600B50DF2 /* Sources */,
 				B09181C61D35D91600B50DF2 /* Frameworks */,
 				B09181C71D35D91600B50DF2 /* Headers */,
 				B09181C81D35D91600B50DF2 /* Resources */,
+				1C93EB0517387D994D1584CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,11 +143,12 @@
 		B09181801D35D58D00B50DF2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "steven rogers";
 				TargetAttributes = {
 					B09181C91D35D91600B50DF2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -152,6 +179,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1C93EB0517387D994D1584CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireGloss/Pods-AlamofireGloss-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBDC04B59911A0C5494DD864 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B09181C51D35D91600B50DF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,8 +238,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -222,8 +284,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -242,13 +306,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		B09181D01D35D91600B50DF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A938098715B47557CE0B056 /* Pods-AlamofireGloss.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -266,6 +333,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -274,7 +342,9 @@
 		};
 		B09181D11D35D91600B50DF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6997C8D5551DE2342E129791 /* Pods-AlamofireGloss.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -291,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.srogers.AlamofireGloss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
