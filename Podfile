@@ -8,6 +8,6 @@ end
 
 target ‘AlamofireGloss’ do
     use_frameworks!
-    pod 'Gloss', '~> 0.8'
+    pod 'Gloss', '~> 0.7'
     pod 'Alamofire'
 end
