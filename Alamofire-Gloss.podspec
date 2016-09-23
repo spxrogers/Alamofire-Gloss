@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Alamofire-Gloss"
-  s.version          = "1.0.1"
+  s.version          = "1.1"
   s.summary          = "Convenience Gloss bindings for Alamofire."
   s.description      = <<-EOS
     [Gloss](https://github.com/hkellaway/Gloss) bindings for
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/spxrogers/Alamofire-Gloss"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "Steven Rogers" => "me@srogers.net" }
-  s.source           = { :git => "https://github.com/spxrogers/Alamofire-Gloss.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/jpunz/Alamofire-Gloss.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/spxrogers"
 
   s.ios.deployment_target = '8.0'
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/*.swift"
-    ss.dependency "Alamofire", "~> 3.4"
-    ss.dependency "Gloss", "~> 0.7"
+    ss.dependency "Alamofire", "~> 3.5"
+    ss.dependency "Gloss", "~> 0.8"
     ss.framework  = "Foundation"
   end
 
