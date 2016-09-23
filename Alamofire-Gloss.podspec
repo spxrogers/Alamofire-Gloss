@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/spxrogers/Alamofire-Gloss"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "Steven Rogers" => "me@srogers.net" }
-  s.source           = { :git => "https://github.com/spxrogers/Alamofire-Gloss.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/jpunz/Alamofire-Gloss.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/spxrogers"
 
   s.ios.deployment_target = '8.0'
