@@ -50,7 +50,7 @@ public extension Alamofire.Request {
       }
       
       let result = [T].fromJSONArray(json)
-      return .Success(result!)
+      return .Success(result)
     }
   }
   
