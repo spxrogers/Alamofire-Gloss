@@ -19,11 +19,11 @@ class ResponseGlossSpec: QuickSpec {
       var equal = false
       
       waitUntil(timeout: 5) { done in
-        Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) { (response) in
+        Alamofire.request(personUrl).responseObject(Person.self) { (response) in
           switch response.result {
-          case .Success(let person):
+          case .success(let person):
             equal = steven == person
-          case .Failure(_):
+          case .failure(_):
             equal = false
           }
           done()
@@ -39,11 +39,11 @@ class ResponseGlossSpec: QuickSpec {
       var equal = false
       
       waitUntil(timeout: 5) { done in
-        Alamofire.request(.GET, peopleUrl, parameters: nil).responseArray(Person.self) { (response) in
+        Alamofire.request(peopleUrl).responseArray(Person.self) { (response) in
           switch response.result {
-          case .Success(let responsePeople):
+          case .success(let responsePeople):
             equal = people == responsePeople
-          case .Failure(_):
+          case .failure(_):
             equal = false
           }
           done()
@@ -57,11 +57,11 @@ class ResponseGlossSpec: QuickSpec {
       var failedWhenExpected = false
       
       waitUntil(timeout: 5) { done in
-        Alamofire.request(.GET, badPersonUrl, parameters: nil).responseObject(Person.self) { (response) in
+        Alamofire.request(badPersonUrl).responseObject(Person.self) { (response) in
           switch response.result {
-          case .Success(_):
+          case .success(_):
             failedWhenExpected = false
-          case .Failure(_):
+          case .failure(_):
             failedWhenExpected = true
           }
           done()
@@ -74,11 +74,11 @@ class ResponseGlossSpec: QuickSpec {
       var failedWhenExpected = false
       
       waitUntil(timeout: 5) { done in
-        Alamofire.request(.GET, badFormatUrl, parameters: nil).responseObject(Person.self) { (response) in
+        Alamofire.request(badFormatUrl).responseObject(Person.self) { (response) in
           switch response.result {
-          case .Success(_):
+          case .success(_):
             failedWhenExpected = false
-          case .Failure(_):
+          case .failure(_):
             failedWhenExpected = true
           }
           done()
@@ -91,11 +91,11 @@ class ResponseGlossSpec: QuickSpec {
       var failedWhenExpected = false
       
       waitUntil(timeout: 5) { done in
-        Alamofire.request(.GET, badPersonUrl, parameters: nil).responseArray(Person.self) { (response) in
+        Alamofire.request(badPersonUrl).responseArray(Person.self) { (response) in
           switch response.result {
-          case .Success(_):
+          case .success(_):
             failedWhenExpected = false
-          case .Failure(_):
+          case .failure(_):
             failedWhenExpected = true
           }
           done()
