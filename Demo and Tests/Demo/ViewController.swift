@@ -18,30 +18,31 @@ class ViewController: UIViewController {
   let personUrl = "http://srogers.net/rest/person.json"
   let peopleUrl = "http://srogers.net/rest/people.json"
   
-  private func text(str: String) {
+  fileprivate func text(_ str: String) {
     resultsLabel.text = str
   }
   
-  @IBAction func mapPersonPressed(sender: UIButton) {
-    Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) { (response) in
+  @IBAction func mapPersonPressed(_ sender: UIButton) {
+    // Alamofire requests default to GET (.get) HTTP methods
+    Alamofire.request(personUrl).responseObject(Person.self) { (response) in
       switch response.result {
-      case .Success(let person):
+      case .success(let person):
         self.text("Found person: \(person)")
-      case .Failure(let error):
+      case .failure(let error):
         self.text("Error'd: \(error)")
       }
     }
   }
   
-  @IBAction func mapPeoplePressed(sender: UIButton) {
-    Alamofire.request(.GET, peopleUrl, parameters: nil).responseArray(Person.self) { (response) in
+  @IBAction func mapPeoplePressed(_ sender: UIButton) {
+    // Alamofire requests default to GET (.get) HTTP methods
+    Alamofire.request(peopleUrl).responseArray(Person.self) { (response) in
       switch response.result {
-      case .Success(let people):
+      case .success(let people):
         self.text("Found people: \(people)")
-      case .Failure(let error):
+      case .failure(let error):
         self.text("Error'd: \(error)")
       }
     }
   }
 }
-

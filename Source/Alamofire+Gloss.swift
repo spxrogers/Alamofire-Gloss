@@ -8,66 +8,150 @@
 import Alamofire
 import Gloss
 
-/// Domain constant for constucting an NSError
-public let AlamoFireGloss_ErrDomain = "Alamofire+Gloss"
+// MARK: – Base Alamofire.Request
 
-/// Code constant for constucting an NSError
-public let AlamoFireGloss_ErrCode = -1
-
-public extension Alamofire.Request {
- 
-  /// Creates a response serializer to map Response Data into an object that implements the Decodable or Glossy protocol.
-  static public func GlossyObjectResponseSerializer<T: Decodable>() -> Alamofire.ResponseSerializer<T, NSError> {
-    return Alamofire.ResponseSerializer { _, resp, data, error in
-      guard error == nil
-        else { return .Failure(error!) }
-      
-      guard
-        let dat = data,
-        let json = mapJSON(dat) as? JSON,
-        let result = T(json: json)
-      else {
-        let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
-        return .Failure(errz)
-      }
-      
-      return .Success(result)
+public extension Request {
+  
+  // MARK: - Object
+  
+  public static func serializeReponseGlossyObject<T: Decodable>(type: T.Type, response: HTTPURLResponse?,
+                                                  data: Data?, error: Error?) -> Result<T> {
+    guard error == nil else { return .failure(error!) }
+    
+    guard let validData = data, validData.count > 0 else {
+      return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
     }
-  }
-  
-  /// Creates a response serializer to map Response Data into an array of objects that implements the Decodable or Glossy protocol.
-  static public func GlossyArrayResponseSerializer<T: Decodable>() -> Alamofire.ResponseSerializer<[T], NSError> {
-    return Alamofire.ResponseSerializer { _, resp, data, error in
-      guard error == nil
-        else { return .Failure(error!) }
-      
-      guard
-        let dat = data,
-        let json = mapJSON(dat) as? [JSON]
-      else {
-        let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
-        return .Failure(errz)
-      }
-      
-      let result = [T].fromJSONArray(json)
-      return .Success(result)
+    
+    guard let json = mapJSON(validData) as? JSON, let result = T(json: json) else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: glossyJsonError(data: validData))))
     }
+    return .success(result)
   }
   
-  /// The response handler for object-mapping that is called once the Alamofire request completes.
-  public func responseObject<T: Decodable>(type: T.Type, completionHandler: Alamofire.Response<T, NSError> -> Void) -> Self {
-    return response(responseSerializer: Alamofire.Request.GlossyObjectResponseSerializer(), completionHandler: completionHandler)
-  }
+  // MARK: - Array
   
-  /// The response handler for array-mapping that is called once the Alamofire request completes.
-  public func responseArray<T: Decodable>(type: T.Type, completionHandler: Alamofire.Response<[T], NSError> -> Void) -> Self {
-    return response(responseSerializer: Alamofire.Request.GlossyArrayResponseSerializer(), completionHandler: completionHandler)
+  public static func serializeReponseGlossyArray<T: Decodable>(type: T.Type, response: HTTPURLResponse?,
+                                                 data: Data?, error: Error?) -> Result<[T]> {
+    guard error == nil else { return .failure(error!) }
+    
+    guard let validData = data, validData.count > 0 else {
+      return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
+    }
+    
+    guard let jsonArray = mapJSON(validData) as? [JSON], let result = [T].from(jsonArray: jsonArray) else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: glossyJsonError(data: validData))))
+    }
+    return .success(result)
   }
 }
 
-private func mapJSON(data: NSData) -> AnyObject? {
+// MARK: – Alamofire.DataRequest
+
+public extension DataRequest {
+  
+  // MARK: - Object
+  
+  public static func glossyObjectResponseSerializer<T: Decodable>(type: T.Type) -> DataResponseSerializer<T> {
+    return DataResponseSerializer { _, response, data, error in
+      return Request.serializeReponseGlossyObject(type: T.self, response: response, data: data, error: error)
+    }
+  }
+  
+  @discardableResult
+  public func responseObject<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+    return response(queue: queue,
+                    responseSerializer: DataRequest.glossyObjectResponseSerializer(type: T.self),
+                    completionHandler: completionHandler)
+  }
+  
+  // MARK: - Array
+  
+  public static func glossyArrayResponseSerializer<T: Decodable>(type: T.Type) -> DataResponseSerializer<[T]> {
+    return DataResponseSerializer { _, response, data, error in
+      return Request.serializeReponseGlossyArray(type: T.self, response: response, data: data, error: error)
+    }
+  }
+  
+  @discardableResult
+  public func responseArray<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
+    return response(queue: queue,
+                    responseSerializer: DataRequest.glossyArrayResponseSerializer(type: T.self),
+                    completionHandler: completionHandler)
+  }
+}
+
+// MARK: – Alamofire.DownloadRequest
+
+public extension DownloadRequest {
+  
+  // MARK: - Object
+  
+  public static func glossyObjectResponseSerializer<T: Decodable>(type: T.Type) -> DownloadResponseSerializer<T> {
+    return DownloadResponseSerializer { _, response, fileURL, error in
+      guard error == nil else { return .failure(error!) }
+      
+      guard let fileURL = fileURL else {
+        return .failure(AFError.responseSerializationFailed(reason: .inputFileNil))
+      }
+      
+      do {
+        let data = try Data(contentsOf: fileURL)
+        return Request.serializeReponseGlossyObject(type: T.self, response: response, data: data, error: error)
+      } catch {
+        return .failure(AFError.responseSerializationFailed(reason: .inputFileReadFailed(at: fileURL)))
+      }
+    }
+  }
+  
+  @discardableResult
+  public func responseObject<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, completionHandler: @escaping (DownloadResponse<T>) -> Void) -> Self {
+    return response(queue: queue,
+                    responseSerializer: DownloadRequest.glossyObjectResponseSerializer(type: T.self),
+                    completionHandler: completionHandler)
+  }
+  
+  // MARK: - Array
+  
+  public static func glossyArrayResponseSerializer<T: Decodable>(type: T.Type) -> DownloadResponseSerializer<[T]> {
+    return DownloadResponseSerializer { _, response, fileURL, error in
+      guard error == nil else { return .failure(error!) }
+      
+      guard let fileURL = fileURL else {
+        return .failure(AFError.responseSerializationFailed(reason: .inputFileNil))
+      }
+      
+      do {
+        let data = try Data(contentsOf: fileURL)
+        return Request.serializeReponseGlossyArray(type: T.self, response: response, data: data, error: error)
+      } catch {
+        return .failure(AFError.responseSerializationFailed(reason: .inputFileReadFailed(at: fileURL)))
+      }
+    }
+  }
+  
+  @discardableResult
+  public func responseArray<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, completionHandler: @escaping (DownloadResponse<[T]>) -> Void) -> Self {
+    return response(queue: queue,
+                    responseSerializer: DownloadRequest.glossyArrayResponseSerializer(type: T.self),
+                    completionHandler: completionHandler)
+  }
+}
+
+// MARK: - cutie utility functions
+
+private func glossyJsonError(data: Data) -> NSError {
+  // domain and code constants for constructing an NSError
+  let AlamoFireGloss_ErrDomain = "Alamofire+Gloss"
+  let AlamoFireGloss_ErrCode = -1
+  
+  return NSError(domain: AlamoFireGloss_ErrDomain,
+                 code: AlamoFireGloss_ErrCode,
+                 userInfo: ["responseDataDump": data])
+}
+
+private func mapJSON(_ data: Data) -> Any? {
   do {
-    return try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+    return try JSONSerialization.jsonObject(with: data, options: .allowFragments)
   } catch {
     return nil
   }

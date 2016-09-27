@@ -62,11 +62,11 @@ responseArray()
 
 
 ```swift
-Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) { (response) in
+Alamofire.request(personUrl).responseObject(Person.self) { (response) in
   switch response.result {
-  case .Success(let person):
+  case .success(let person):
     print("Found person: \(person)")
-  case .Failure(let error):
+  case .failure(let error):
     print("Error'd: \(error)")
   }
 }
@@ -76,11 +76,11 @@ Alamofire.request(.GET, personUrl, parameters: nil).responseObject(Person.self) 
 
 
 ```swift
-Alamofire.request(.GET, peopleUrl, parameters: nil).responseArray(Person.self) { (response) in
+Alamofire.request(peopleUrl).responseArray(Person.self) { (response) in
   switch response.result {
-  case .Success(let people):
+  case .success(let people):
     print("Found people: \(people)")
-  case .Failure(let error):
+  case .failure(let error):
     print("Error'd: \(error)")
   }
 }

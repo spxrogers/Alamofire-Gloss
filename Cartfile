@@ -1,2 +1,2 @@
-github "hkellaway/Gloss"
-github "Alamofire/Alamofire" ~> 3.4
+github "hkellaway/Gloss" ~> 1.0
+github "Alamofire/Alamofire" ~> 4.0
