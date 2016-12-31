@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D7BA7A11E13B3CF00EE5F7B /* AlamofireGloss_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7BA79F1E13B3CF00EE5F7B /* AlamofireGloss_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0694DA81D35DA2200B52AD7 /* AlamofireGloss.h in Headers */ = {isa = PBXBuildFile; fileRef = B09181BB1D35D79100B50DF2 /* AlamofireGloss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0694DA91D35DA4700B52AD7 /* Alamofire+Gloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09181AA1D35D6F300B50DF2 /* Alamofire+Gloss.swift */; };
 		B09181D21D35D94D00B50DF2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09181C01D35D83500B50DF2 /* Alamofire.framework */; };
@@ -14,6 +15,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D7BA7941E13A93E00EE5F7B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
+		5D7BA7961E13A94300EE5F7B /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/tvOS/Gloss.framework; sourceTree = "<group>"; };
+		5D7BA79D1E13B3CE00EE5F7B /* AlamofireGloss_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireGloss_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7BA79F1E13B3CF00EE5F7B /* AlamofireGloss_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlamofireGloss_tvOS.h; sourceTree = "<group>"; };
+		5D7BA7A01E13B3CF00EE5F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B09181AA1D35D6F300B50DF2 /* Alamofire+Gloss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Gloss.swift"; sourceTree = "<group>"; };
 		B09181BB1D35D79100B50DF2 /* AlamofireGloss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlamofireGloss.h; sourceTree = "<group>"; };
 		B09181BC1D35D79100B50DF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -23,6 +29,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D7BA7991E13B3CE00EE5F7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B09181C61D35D91600B50DF2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -35,13 +48,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D7BA7931E13A93E00EE5F7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D7BA7961E13A94300EE5F7B /* Gloss.framework */,
+				5D7BA7941E13A93E00EE5F7B /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D7BA79E1E13B3CF00EE5F7B /* AlamofireGloss_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5D7BA79F1E13B3CF00EE5F7B /* AlamofireGloss_tvOS.h */,
+				5D7BA7A01E13B3CF00EE5F7B /* Info.plist */,
+			);
+			path = AlamofireGloss_tvOS;
+			sourceTree = "<group>";
+		};
 		B091817F1D35D58D00B50DF2 = {
 			isa = PBXGroup;
 			children = (
 				B09181A91D35D6F300B50DF2 /* Source */,
 				B09181BA1D35D79100B50DF2 /* Supporting Files */,
+				5D7BA79E1E13B3CF00EE5F7B /* AlamofireGloss_tvOS */,
 				B09181891D35D58D00B50DF2 /* Products */,
 				B09181C41D35D83F00B50DF2 /* Dependencies */,
+				5D7BA7931E13A93E00EE5F7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				B09181CA1D35D91600B50DF2 /* AlamofireGloss.framework */,
+				5D7BA79D1E13B3CE00EE5F7B /* AlamofireGloss_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +116,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5D7BA79A1E13B3CE00EE5F7B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7BA7A11E13B3CF00EE5F7B /* AlamofireGloss_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B09181C71D35D91600B50DF2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +135,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5D7BA79C1E13B3CE00EE5F7B /* AlamofireGloss_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D7BA7A21E13B3CF00EE5F7B /* Build configuration list for PBXNativeTarget "AlamofireGloss_tvOS" */;
+			buildPhases = (
+				5D7BA7981E13B3CE00EE5F7B /* Sources */,
+				5D7BA7991E13B3CE00EE5F7B /* Frameworks */,
+				5D7BA79A1E13B3CE00EE5F7B /* Headers */,
+				5D7BA79B1E13B3CE00EE5F7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlamofireGloss_tvOS;
+			productName = AlamofireGloss_tvOS;
+			productReference = 5D7BA79D1E13B3CE00EE5F7B /* AlamofireGloss_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B09181C91D35D91600B50DF2 /* AlamofireGloss */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B09181CF1D35D91600B50DF2 /* Build configuration list for PBXNativeTarget "AlamofireGloss" */;
@@ -120,6 +180,10 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "steven rogers";
 				TargetAttributes = {
+					5D7BA79C1E13B3CE00EE5F7B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					B09181C91D35D91600B50DF2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0800;
@@ -139,11 +203,19 @@
 			projectRoot = "";
 			targets = (
 				B09181C91D35D91600B50DF2 /* AlamofireGloss */,
+				5D7BA79C1E13B3CE00EE5F7B /* AlamofireGloss_tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D7BA79B1E13B3CE00EE5F7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B09181C81D35D91600B50DF2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +226,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D7BA7981E13B3CE00EE5F7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B09181C51D35D91600B50DF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +244,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5D7BA7A31E13B3CF00EE5F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AlamofireGloss_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.srogers.AlamofireGloss-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D7BA7A41E13B3CF00EE5F7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AlamofireGloss_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.srogers.AlamofireGloss-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B091818F1D35D58D00B50DF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -185,7 +318,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -208,6 +341,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -231,7 +365,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -247,6 +381,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -272,6 +407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.srogers.AlamofireGloss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,6 +436,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.srogers.AlamofireGloss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -310,6 +447,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D7BA7A21E13B3CF00EE5F7B /* Build configuration list for PBXNativeTarget "AlamofireGloss_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7BA7A31E13B3CF00EE5F7B /* Debug */,
+				5D7BA7A41E13B3CF00EE5F7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B09181831D35D58D00B50DF2 /* Build configuration list for PBXProject "AlamofireGloss" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
