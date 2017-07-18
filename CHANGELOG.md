@@ -1,8 +1,25 @@
 # Change Log
 `Alamofire-Gloss` adheres to [Semantic Versioning](http://semver.org/).
 
+- [2.0.1](#201)
+- [2.0.0](#200)
 - [1.0.1](#101)
 - [1.0.0](#100)
+
+---
+
+## [2.0.1](https://github.com/spxrogers/Alamofire-Gloss/releases/tag/2.0.1)
+
+#### Patch Update
+- Namespaced `Decodable` protocol to `Gloss.Decodable` to fix Swift 4 errors
+
+---
+
+## [2.0.0](https://github.com/spxrogers/Alamofire-Gloss/releases/tag/2.0.0)
+
+#### Major Update
+- Swift 3 Support.
+- Updated to Alamofire's latest Request Serialization pattern.
 
 ---
 

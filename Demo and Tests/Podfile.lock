@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (4.0.1)
-  - Alamofire-Gloss (2.0.0):
-    - Alamofire-Gloss/Core (= 2.0.0)
-  - Alamofire-Gloss/Core (2.0.0):
+  - Alamofire (4.5.0)
+  - Alamofire-Gloss (2.0.1):
+    - Alamofire-Gloss/Core (= 2.0.1)
+  - Alamofire-Gloss/Core (2.0.1):
     - Alamofire (~> 4.0)
     - Gloss (~> 1.0)
-  - Gloss (1.0.0)
-  - Nimble (5.0.0)
-  - Quick (0.10.0)
+  - Gloss (1.2.4)
+  - Nimble (7.0.1)
+  - Quick (1.1.0)
 
 DEPENDENCIES:
   - Alamofire-Gloss (from `../`)
@@ -19,12 +19,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  Alamofire-Gloss: dea192a13e23d323415e80e9b18d53915fd484bf
-  Gloss: 014789e9e69ca18f127eacca999f4c9b0bff6d58
-  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
-  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire-Gloss: 90bdc7a13ee9abe29db1ae2a05a15e461ba94774
+  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
 PODFILE CHECKSUM: 37dde621b6dd0b5b2a7766f2fab975f56fc269fc
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.1

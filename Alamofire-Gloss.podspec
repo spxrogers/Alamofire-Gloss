@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Alamofire-Gloss"
-  s.version          = "2.0.0"
+  s.version          = "2.0.1"
   s.summary          = "Convenience Gloss bindings for Alamofire."
   s.description      = <<-EOS
     [Gloss](https://github.com/hkellaway/Gloss) bindings for
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/spxrogers/Alamofire-Gloss"
   s.license          = { :type => "MIT", :file => "LICENSE" }
-  s.author           = { "Steven Rogers" => "me@srogers.net" }
+  s.author           = { "steven sogers" => "me@srogers.net" }
   s.source           = { :git => "https://github.com/spxrogers/Alamofire-Gloss.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/spxrogers"
 
