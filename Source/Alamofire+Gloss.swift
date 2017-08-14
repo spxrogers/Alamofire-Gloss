@@ -8,6 +8,12 @@
 import Alamofire
 import Gloss
 
+enum AlamofireGlossError: Error {
+  case jsonDecoding(rootCause: Any)
+  case glossyInit(inputJson: JSON)
+  case glossyArrayInit(inputJson: [JSON])
+}
+
 // MARK: – Base Alamofire.Request
 
 public extension Request {
@@ -21,10 +27,19 @@ public extension Request {
     guard let validData = data, validData.count > 0 else {
       return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
     }
-    
-    guard let json = mapJSON(validData) as? JSON, let result = T(json: json) else {
-      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: glossyJsonError(data: validData))))
+
+    let maybeJson = mapJSON(validData)
+
+    guard let json = maybeJson as? JSON else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error:
+        AlamofireGlossError.jsonDecoding(rootCause: maybeJson))))
     }
+
+    guard let result = T(json: json) else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error:
+        AlamofireGlossError.glossyInit(inputJson: json))))
+    }
+
     return .success(result)
   }
   
@@ -37,10 +52,19 @@ public extension Request {
     guard let validData = data, validData.count > 0 else {
       return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
     }
-    
-    guard let jsonArray = mapJSON(validData) as? [JSON], let result = [T].from(jsonArray: jsonArray) else {
-      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: glossyJsonError(data: validData))))
+
+    let maybeJson = mapJSON(validData)
+
+    guard let jsonArray = maybeJson as? [JSON] else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error:
+        AlamofireGlossError.jsonDecoding(rootCause: maybeJson))))
     }
+
+    guard let result = [T].from(jsonArray: jsonArray) else {
+      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error:
+        AlamofireGlossError.glossyArrayInit(inputJson: jsonArray))))
+    }
+
     return .success(result)
   }
 }
@@ -137,22 +161,12 @@ public extension DownloadRequest {
   }
 }
 
-// MARK: - cutie utility functions
+// MARK: - cutie utility function
 
-private func glossyJsonError(data: Data) -> NSError {
-  // domain and code constants for constructing an NSError
-  let AlamoFireGloss_ErrDomain = "Alamofire+Gloss"
-  let AlamoFireGloss_ErrCode = -1
-  
-  return NSError(domain: AlamoFireGloss_ErrDomain,
-                 code: AlamoFireGloss_ErrCode,
-                 userInfo: ["responseDataDump": data])
-}
-
-private func mapJSON(_ data: Data) -> Any? {
+private func mapJSON(_ data: Data) -> Any {
   do {
     return try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-  } catch {
-    return nil
+  } catch let error {
+    return error
   }
 }
