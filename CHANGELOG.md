@@ -1,10 +1,18 @@
 # Change Log
 `Alamofire-Gloss` adheres to [Semantic Versioning](http://semver.org/).
 
+- [2.1.0](#210)
 - [2.0.1](#201)
 - [2.0.0](#200)
 - [1.0.1](#101)
 - [1.0.0](#100)
+
+---
+
+## [2.1.0](https://github.com/spxrogers/Alamofire-Gloss/releases/tag/2.1.0)
+
+#### Minor Update
+- Surface the root cause of `mapObject` and `mapArray` errors to caller via `AlamofireGlossError`.
 
 ---
 

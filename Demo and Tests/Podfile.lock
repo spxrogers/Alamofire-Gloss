@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (4.5.0)
-  - Alamofire-Gloss (2.0.1):
-    - Alamofire-Gloss/Core (= 2.0.1)
-  - Alamofire-Gloss/Core (2.0.1):
+  - Alamofire-Gloss (2.1.0):
+    - Alamofire-Gloss/Core (= 2.1.0)
+  - Alamofire-Gloss/Core (2.1.0):
     - Alamofire (~> 4.0)
     - Gloss (~> 1.0)
   - Gloss (1.2.4)
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  Alamofire-Gloss: 90bdc7a13ee9abe29db1ae2a05a15e461ba94774
+  Alamofire-Gloss: 440d0bd3d242628b35ed2f0059b60e88e5cc8d96
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
