@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/spxrogers/Alamofire-Gloss.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/spxrogers"
 
-  s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.11'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
   s.requires_arc = true
@@ -33,8 +33,8 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/*.swift"
-    ss.dependency "Alamofire", "~> 4.0"
-    ss.dependency "Gloss", "~> 1.0"
+    ss.dependency "Alamofire", "~> 4.5.1"
+    ss.dependency "Gloss", "~> 2.0.0-beta.2"
     ss.framework  = "Foundation"
   end
 
