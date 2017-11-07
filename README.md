@@ -36,7 +36,7 @@ Create a `Class` or `Struct` which implements the `Decodable` (or `Glossy`) prot
 import Foundation
 import Gloss
 
-struct Person: Decodable {
+struct Person: JSONDecodable {
 
   let name: String
   let age: Int?
