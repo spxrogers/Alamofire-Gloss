@@ -8,7 +8,7 @@
 import Alamofire
 import Gloss
 
-enum AlamofireGlossError: Error {
+public enum AlamofireGlossError: Error {
   case jsonDecoding(rootCause: Any)
   case glossyInit(inputJson: JSON)
   case glossyArrayInit(inputJson: [JSON])
