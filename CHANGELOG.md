@@ -1,12 +1,21 @@
 # Change Log
 `Alamofire-Gloss` adheres to [Semantic Versioning](http://semver.org/).
 
+- [3.0.1](#301)
 - [3.0.0](#300)
 - [2.1.0](#210)
 - [2.0.1](#201)
 - [2.0.0](#200)
 - [1.0.1](#101)
 - [1.0.0](#100)
+
+---
+
+## [3.0.1](https://github.com/spxrogers/Alamofire-Gloss/releases/tag/3.0.1)
+
+#### Patch Update
+- `AlamofireGlossError` is public (thanks @sebavenditti!)
+- AF version `4.6.0`
 
 ---
 
