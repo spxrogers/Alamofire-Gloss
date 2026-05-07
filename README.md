@@ -1,3 +1,5 @@
+> ⚠️ **No longer maintained**
+
 Alamofire-Gloss
 ============
 [![CocoaPods](https://img.shields.io/cocoapods/v/Alamofire-Gloss.svg)](http://cocoapods.org/pods/Alamofire-Gloss)
